@@ -23,7 +23,23 @@ export default{
           {name:'Party Songs'},
           {name:'Relaxing music'},
         ],
-        accountHover:true
+        accountHover:true,
+        topCards:[
+          {src:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsocietyofrock.com%2Fwp-content%2Fuploads%2F2016%2F07%2Fjudas-priest-use.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fusercontent1.hubstatic.com%2F14483436_f1024.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fus-east-1.linodeobjects.com%2Fgunaxin%2F2018%2F08%2FAerosmith-ParkMGM.jpg%3Fssl%3D1&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsocietyofrock.com%2Fwp-content%2Fuploads%2F2016%2F07%2Fjudas-priest-use.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.standard.co.uk%2Fs3fs-public%2Fthumbnails%2Fimage%2F2018%2F01%2F22%2F11%2Fsmiths.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thoughtco.com%2Fthmb%2FgykQv9yc-uTYSFJUsJ_NGXfIIuI%3D%2F6300x4200%2Ffilters%3Afill(auto%2C1)%2FGettyImages-587240081-57ef12a35f9b586c35c93ac4.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'}
+        ],
+        secondCards:[
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2Fb8aaf4b179bb0a52f29a810fdb0f9d5c16ec2c75%2F1%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2F65b17276698a6f067778e00a43b5f8f369423bb5%2F3%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2Fb8aaf4b179bb0a52f29a810fdb0f9d5c16ec2c75%2F1%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2F3416c5c5e30dcafbb24e40b69339312f4ba29b56%2F4%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2F330f9806621bc0fe67f5c06f2f1f8df53d011b4e%2F4%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2F93fec27f9aac86526b9010e882037afbda4e3d5f%2F2%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'}
+        ]
     }
   },
 }
@@ -74,10 +90,10 @@ export default{
         </div>
     </div>
     <!-- main content -->
-    <div class="w-full h-full relative">
+    <div class="w-full h-full relative overflow-y-scroll">
 
       <!-- header -->
-      <div class="w-full sticky top-0 py-4 px-6 flex items-center justify-between">
+      <div class="w-full sticky top-0 py-4 px-6 flex items-center justify-between bg-darkest">
         <div class=" flex items-center">
           <button class="rounded-full bg-black w-8 h-8 text-white flex items-center justify-center mr-3">
               <span class="material-icons text-white">keyboard_arrow_left</span>
@@ -97,6 +113,35 @@ export default{
             <button class="py-2  opacity-75 hover:opacity-100 w-full text-left pl-8" >Account</button>
             <div class="h-px w-full border-t border-lightest"></div>
             <button class="py-2  opacity-75 hover:opacity-100 w-full text-left pl-8">Log out</button>
+          </div>
+        </div>
+      </div>
+      <!-- cards -->
+      <div>
+        <div class=" px-6 flex items-center justify-between">
+        <h1 class="pl-2 text-2xl font-semibold text-white tracking-wider hover:underline">Recently Played</h1>
+        <h2 class="pr-8 text-xs pt-4 text-lightest uppercase tracking-wider hover:underline mb-3">See All</h2>
+        </div>
+        <div class="w-full flex flex-wrap px-6 py-3">
+          <div v-for="card,i in secondCards" :key="i" class="p-2 w-1/6">
+            <div  class=" bg-light w-full h-auto p-5  rounded-md">
+              <img :src="card.src" alt="" class="w-full h-auto shadow mb-2  object-center object-cover">
+              <h2 class="text-sm font-semibold text-white tracking-wide">{{card.title}}</h2>
+              <h3 class="text-xs  text-lightest tracking-wide pb-5">{{card.artist}} </h3>
+            </div>
+          </div>
+        </div>
+       <div class=" px-8 mt-8">
+        <h1 class=" text-2xl font-semibold text-white tracking-wider hover:underline">Made For You</h1>
+        <h2 class="text-sm  text-lightest">Get better recommendations the more you listen.</h2>
+        </div>
+        <div class="w-full flex flex-wrap px-6 py-2">
+          <div v-for="card,i in topCards" :key="i" class="p-2 w-1/6">
+            <div  class=" bg-light w-full h-auto p-5  rounded-md">
+              <img :src="card.src" alt="" class="shadow mb-2  w-auto object-center object-cover" style=" height:120px;">
+              <h2 class="text-sm font-semibold text-white tracking-wide">{{card.title}}</h2>
+              <h3 class="text-xs  text-lightest tracking-wide pb-5">{{card.artist}} </h3>
+            </div>
           </div>
         </div>
       </div>
