@@ -39,8 +39,19 @@ export default{
           {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2F3416c5c5e30dcafbb24e40b69339312f4ba29b56%2F4%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
           {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2F330f9806621bc0fe67f5c06f2f1f8df53d011b4e%2F4%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
           {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2F93fec27f9aac86526b9010e882037afbda4e3d5f%2F2%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'}
-        ]
+        ],
+        pause:false,
     }
+  },
+  methods: {
+    playSong(){
+      this.pause = ! this.pause
+      if(this.pause){
+        var audio = new Audio('./song.mp3')
+        audio.play()
+      }
+    }
+    
   },
 }
 </script>
@@ -49,7 +60,7 @@ export default{
 <div class="bg-dark h-screen">
   <div class="flex" style="height:88vh;">
     <!-- side nav -->
-    <div class="w-56 bg-black h-full flex-none" >
+    <div class="w-56 bg-black h-full flex-none z-30" >
       <div class="p-6">
       <img class="h-10" style="filter:brightness(0) inver(1);" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fs22.q4cdn.com%2F540910603%2Ffiles%2Fdesign%2FSpotify_Logo_White.png&f=1&nofb=1" alt="">
       </div>
@@ -80,8 +91,8 @@ export default{
         </div>
 
       </div>
-              <div class="relative mt-4">
-          <img src="https://i4.hurimg.com/i/hurriyet/75/770x0/5f007af7d3806c129c7039f3.jpg" alt="" class=" h-50 object-cover object-center">
+          <div class="relative mt-4 z-0">
+          <img src="https://i4.hurimg.com/i/hurriyet/75/770x0/5f007af7d3806c129c7039f3.jpg" alt="" class=" h-60 mt-24 object-cover object-center ">
           <div class="w-full h-full absolute top-0 flex justify-end items-start p-2 opacity-0 hover:opacity-100 transition-opacity">
             <div class="bg-black rounded-full h-6 w-6 flex items-center justify-center ">
               <span class="material-icons text-white">keyboard_arrow_down</span>
@@ -93,7 +104,7 @@ export default{
     <div class="w-full h-full relative overflow-y-scroll">
 
       <!-- header -->
-      <div class="w-full sticky top-0 py-4 px-6 flex items-center justify-between bg-darkest">
+      <div class="w-full sticky top-0 py-4 px-6 flex items-center justify-between bg-darkest z-40">
         <div class=" flex items-center">
           <button class="rounded-full bg-black w-8 h-8 text-white flex items-center justify-center mr-3">
               <span class="material-icons text-white">keyboard_arrow_left</span>
@@ -182,8 +193,43 @@ export default{
     </div>
   </div>
     <!-- paybar -->
-    <div class="w-full bg-light " style="height:12vh;">
+    <div class="w-full bg-light flex items-center justify-between px-3 border-t border-darkest sticky z-50" style="height:12vh;">
+      <div class="flex items-center w-3/12">
+        <div>
+          <h2 class="text-sm text-white tracking-wide " >Kurtlar Vadisi - Vadi Pusulu</h2>
+          <h3 class="text-xs text-lightest tracking-wide">Harekaat Müziği</h3>
+        </div>
+        <span class="material-icons text-xl text-green mx-4 hover:text-white">favorite</span>
+        <span class="material-icons text-xl text-lightest hover:text-white">picture_in_picture_alt</span>
+      </div>
+  
+      <div class="flex  flex-col justify-center w-5/12 items-center">
+        <div class="flex items-center">
+          <button class=" text-lightest mx-5 hover:text-white"><span class="material-icons text-lg">shuffle</span></button>
+          <button class=" text-lightest hover:text-white"><span class="material-icons text-lg">skip_previous</span></button>
+          <button @click="playSong" class=" text-lightest h-8 w-8 flex items-center justify-center border rounded-full border-lightest  hover:text-white mx-5"><span v-if="!pause" class="material-icons text-2xl">play_arrow</span><span v-else class="material-icons text-2xl">pause</span></button>
+          <button class=" text-lightest hover:text-white"><span class="material-icons text-lg">skip_next</span></button>
+          <button class=" text-lightest mx-5 hover:text-white"><span class="material-icons text-lg">repeat</span></button>
+        </div>
+        <div class="w-full flex items-center justify-center mt-3">
+          <p class="text-xs text-lightest mr-1">1:50</p>
+          <div class=" h-1 bg-darkest rounded-full flex w-full items-center">
+            <div class=" h-1 bg-green rounded-full w-1/2">
+            </div>
+            <div class="h-3 w-3 bg-white rounded-full -ml-1 shadow">
+            </div>
+          </div>
+          <p class="text-xs text-lightest ml-1">3:00</p>
+        </div>
+      </div>
 
+      <div class="flex items-center w-3/12 justify-end">
+        <span class="material-icons text-lightest hover:text-white">playlist_play</span>
+        <span class="material-icons text-xl text-lightest mx-3 hover:text-white">important_devices</span>
+        <span class="material-icons text-xl text-lightest hover:text-white">volume_up</span>
+        <div class="w-20 bg-lightest rounded-full h-1 ml-1">
+        </div>
+      </div>
     </div>
 </div>
 </template>
