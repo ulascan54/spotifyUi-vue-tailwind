@@ -41,14 +41,21 @@ export default{
           {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdailymix-images.scdn.co%2Fv2%2Fimg%2F93fec27f9aac86526b9010e882037afbda4e3d5f%2F2%2Fen%2Flarge&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'}
         ],
         pause:false,
+        song:'../src/song.mp3',
+        audio:''
     }
+  },
+  created(){
+     this.audio  = new Audio(this.song)
+
   },
   methods: {
     playSong(){
       this.pause = ! this.pause
       if(this.pause){
-        var audio = new Audio('./song.mp3')
-        audio.play()
+        this.audio.play()
+      }else{
+        this.audio.pause()
       }
     }
     
