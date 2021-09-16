@@ -22,7 +22,8 @@ export default{
           {name:'Classic Road Trip Songs'},
           {name:'Party Songs'},
           {name:'Relaxing music'},
-        ]
+        ],
+        accountHover:true
     }
   },
 }
@@ -76,7 +77,28 @@ export default{
     <div class="w-full h-full relative">
 
       <!-- header -->
-      <div class="w-full sticky top-0 p-2">
+      <div class="w-full sticky top-0 py-4 px-6 flex items-center justify-between">
+        <div class=" flex items-center">
+          <button class="rounded-full bg-black w-8 h-8 text-white flex items-center justify-center mr-3">
+              <span class="material-icons text-white">keyboard_arrow_left</span>
+          </button>
+          <button class="rounded-full bg-black w-8 h-8 text-white flex items-center justify-center">
+              <span class="material-icons text-white">keyboard_arrow_right</span>
+          </button>
+        </div>
+        <div class="relative">
+
+         <button class="rounded-full bg-light h-8 px-1  text-white flex items-center justify-bet opacity-75 hover:opacity-100" type="button" @click="accountHover= !accountHover">
+           <img src="https://yt3.ggpht.com/yti/APfAmoG83tGd_mcU-UmVuAYB2jRsFEYVk-ePyBDOazilaw=s88-c-k-c0x00ffffff-no-rj-mo" alt="" class="w-6 h-6 rounded-full mr-2">
+           <p class="text-xs mr-1">Ulaş Can Demirbağ</p>
+              <span class="material-icons text-white">{{ accountHover ? 'arrow_drop_down' :'arrow_drop_up'}}</span>
+          </button>
+          <div :class=" ` absolute text-lightest  bg-light w-full rounded  mt-1   text-sm   ${accountHover ? 'hidden' :'block'}` ">
+            <button class="py-2  opacity-75 hover:opacity-100 w-full text-left pl-8" >Account</button>
+            <div class="h-px w-full border-t border-lightest"></div>
+            <button class="py-2  opacity-75 hover:opacity-100 w-full text-left pl-8">Log out</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
