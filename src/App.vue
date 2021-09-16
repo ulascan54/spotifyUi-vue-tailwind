@@ -123,7 +123,14 @@ export default{
         <h2 class="pr-8 text-xs pt-4 text-lightest uppercase tracking-wider hover:underline mb-3">See All</h2>
         </div>
         <div class="w-full flex flex-wrap px-6 py-3">
-          <div v-for="card,i in secondCards" :key="i" class="p-2 w-1/1 md:w-1/2 lg:w-1/4 xl:w-1/6">
+          <div v-for="card,i in secondCards" :key="i" class="p-2 w-1/1 md:w-1/2 lg:w-1/4 xl:w-1/6 relative">
+            <div class="absolute opacity-0 hover:opacity-100 transition-opacity w-full h-full flex items-end justify-end p-8">
+                <div class="bg-green rounded-full  h-10 w-10 flex items-center justify-center">
+                  <span class="material-icons text-white text-2xl">
+                      play_arrow
+                  </span>
+                </div>
+            </div>
             <div  class=" bg-light w-full h-auto p-5  rounded-md">
               <img :src="card.src" alt="" class="w-full h-auto shadow mb-2  object-center object-cover">
               <h2 class="text-sm font-semibold text-white tracking-wide">{{card.title}}</h2>
@@ -136,7 +143,34 @@ export default{
         <h2 class="text-sm  text-lightest">Get better recommendations the more you listen.</h2>
         </div>
         <div class="w-full flex flex-wrap px-6 py-2">
-          <div v-for="card,i in topCards" :key="i" class="p-2 w-1/1 md:w-1/2 lg:w-1/4 xl:w-1/6">
+          <div v-for="card,i in topCards" :key="i" class="p-2 w-1/1 md:w-1/2 lg:w-1/4 xl:w-1/6 relative">
+                      <div class="absolute opacity-0 hover:opacity-100 transition-opacity w-full h-full flex items-end justify-end p-8">
+                <div class="bg-green rounded-full  h-10 w-10 flex items-center justify-center">
+                  <span class="material-icons text-white text-2xl">
+                      play_arrow
+                  </span>
+                </div>
+            </div>
+            <div  class=" bg-light w-full h-auto p-5  rounded-md">
+              <img :src="card.src" alt="" class="shadow mb-2 h-full  w-full object-top object-cover" >
+              <h2 class="text-sm font-semibold text-white tracking-wide">{{card.title}}</h2>
+              <h3 class="text-xs  text-lightest tracking-wide pb-5">{{card.artist}} </h3>
+            </div>
+          </div>
+        </div>
+         <div class=" px-8 mt-8">
+        <h1 class=" text-2xl font-semibold text-white tracking-wider hover:underline">Made For You</h1>
+        <h2 class="text-sm  text-lightest">Get better recommendations the more you listen.</h2>
+        </div>
+        <div class="w-full flex flex-wrap px-6 py-2">
+          <div v-for="card,i in topCards" :key="i" class="p-2 w-1/1 md:w-1/2 lg:w-1/4 xl:w-1/6 relative">
+                      <div class="absolute opacity-0 hover:opacity-100 transition-opacity w-full h-full flex items-end justify-end p-8">
+                <div class="bg-green rounded-full  h-10 w-10 flex items-center justify-center">
+                  <span class="material-icons text-white text-2xl">
+                      play_arrow
+                  </span>
+                </div>
+            </div>
             <div  class=" bg-light w-full h-auto p-5  rounded-md">
               <img :src="card.src" alt="" class="shadow mb-2 h-full  w-full object-top object-cover" >
               <h2 class="text-sm font-semibold text-white tracking-wide">{{card.title}}</h2>
