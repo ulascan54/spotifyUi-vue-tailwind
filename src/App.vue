@@ -26,10 +26,10 @@ export default{
         accountHover:true,
         topCards:[
           {src:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsocietyofrock.com%2Fwp-content%2Fuploads%2F2016%2F07%2Fjudas-priest-use.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
-          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fusercontent1.hubstatic.com%2F14483436_f1024.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
-          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fus-east-1.linodeobjects.com%2Fgunaxin%2F2018%2F08%2FAerosmith-ParkMGM.jpg%3Fssl%3D1&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.standard.co.uk%2Fs3fs-public%2Fthumbnails%2Fimage%2F2018%2F01%2F22%2F11%2Fsmiths.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
           {src:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsocietyofrock.com%2Fwp-content%2Fuploads%2F2016%2F07%2Fjudas-priest-use.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
           {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.standard.co.uk%2Fs3fs-public%2Fthumbnails%2Fimage%2F2018%2F01%2F22%2F11%2Fsmiths.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
+          {src:'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fsocietyofrock.com%2Fwp-content%2Fuploads%2F2016%2F07%2Fjudas-priest-use.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'},
           {src:'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thoughtco.com%2Fthmb%2FgykQv9yc-uTYSFJUsJ_NGXfIIuI%3D%2F6300x4200%2Ffilters%3Afill(auto%2C1)%2FGettyImages-587240081-57ef12a35f9b586c35c93ac4.jpg&f=1&nofb=1',title:'Daily Mix',artist:'By Spotify'}
         ],
         secondCards:[
@@ -123,7 +123,7 @@ export default{
         <h2 class="pr-8 text-xs pt-4 text-lightest uppercase tracking-wider hover:underline mb-3">See All</h2>
         </div>
         <div class="w-full flex flex-wrap px-6 py-3">
-          <div v-for="card,i in secondCards" :key="i" class="p-2 w-1/6">
+          <div v-for="card,i in secondCards" :key="i" class="p-2 w-1/1 md:w-1/2 lg:w-1/4 xl:w-1/6">
             <div  class=" bg-light w-full h-auto p-5  rounded-md">
               <img :src="card.src" alt="" class="w-full h-auto shadow mb-2  object-center object-cover">
               <h2 class="text-sm font-semibold text-white tracking-wide">{{card.title}}</h2>
@@ -136,9 +136,9 @@ export default{
         <h2 class="text-sm  text-lightest">Get better recommendations the more you listen.</h2>
         </div>
         <div class="w-full flex flex-wrap px-6 py-2">
-          <div v-for="card,i in topCards" :key="i" class="p-2 w-1/6">
+          <div v-for="card,i in topCards" :key="i" class="p-2 w-1/1 md:w-1/2 lg:w-1/4 xl:w-1/6">
             <div  class=" bg-light w-full h-auto p-5  rounded-md">
-              <img :src="card.src" alt="" class="shadow mb-2  w-auto object-center object-cover" style=" height:120px;">
+              <img :src="card.src" alt="" class="shadow mb-2 h-full  w-full object-top object-cover" >
               <h2 class="text-sm font-semibold text-white tracking-wide">{{card.title}}</h2>
               <h3 class="text-xs  text-lightest tracking-wide pb-5">{{card.artist}} </h3>
             </div>
